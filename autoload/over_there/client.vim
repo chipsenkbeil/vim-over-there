@@ -19,6 +19,15 @@ endfunction
 
 let s:self = {}
 
+let s:self._host = ''
+let s:self._port = 0
+let s:self._running = 0
+let s:self._job_id = 0
+let s:self._callbacks = {}
+let s:self._exit_callback = 0
+let s:self._stdout_lines = []
+let s:self._stderr_lines = []
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PUBLIC METHODS
 
@@ -73,15 +82,15 @@ function! s:self.send(type, payload, on_ok, on_err) dict abort
   \ 'on_err': a:on_err,
   \ }
 
-  let l:msg = {
-  \ 'metadata': {
-  \     'callback_id': l:callback_id,
-  \ },
-  \ 'content': {
-  \     'type': a:type,
-  \     'payload': a:payload,
-  \ },
-  \ }
+  " Build our msg and include callback id
+  let l:msg = {}
+  let l:msg.metadata = { 'callback_id': l:callback_id }
+  let l:msg.content = { 'type': a:type }
+
+  " Only include a payload if non-empty
+  if len(a:payload) > 0
+    let l:msg.content.payload = a:payload
+  endif
 
   call chansend(self.job_id(), json_encode(l:msg))
 endfunction

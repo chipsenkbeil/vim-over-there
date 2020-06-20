@@ -34,13 +34,13 @@ endfunction
 " client instance, returning the id associated with the client
 function! over_there#connect(host, port, opts) abort
     let l:client = over_there#client#new()
-    \ .set_host(a:host)
-    \ .set_port(a:port)
-    \ .set_exit_callback(function('s:over_there#exit_callback'))
-    \ .connect()
+    \.set_host(a:host)
+    \.set_port(a:port)
+    \.set_exit_callback(function('s:ExitCallback'))
+    \.connect()
 
     let l:id = l:client.job_id()
-    g:over_there_clients[l:id] = l:client
+    let g:over_there_clients[l:id] = l:client
 
     return l:id
 endfunction
@@ -82,7 +82,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " [Internal] General logging callback when a client exits
-function! s:over_there#exit_callback(client, exit_code) abort
+function! s:ExitCallback(client, exit_code) abort
     if a:exit_code > 0
         echoerr 'Client '.a:client.job_id().' exited with code '.a:exit_code
     endif

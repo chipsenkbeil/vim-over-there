@@ -19,7 +19,7 @@ endfunction
 function! over_there#utils#gen_unique_id() abort
     " Use maximum value of an unsigned 32-bit integer, which is what our
     " external program uses as the message ID
-    return s:over_there#utils#random(4294967295)
+    return over_there#utils#random(4294967295)
 endfunction
 
 " From https://github.com/mhinz/vim-randomtag
@@ -28,7 +28,7 @@ endfunction
 " in microseconds to provide some form of randomness. This isn't necessarily
 " a quality random function nor is it secure, but it's useful to get a number
 " that is unique enough for callback IDs
-function! s:over_there#utils#random(max) abort
+function! over_there#utils#random(max) abort
   return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:]) % a:max
 endfunction
 
