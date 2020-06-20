@@ -1,0 +1,52 @@
+*over-there.txt*    Plugin to edit content and interact with remote machines.
+*over-there* *overthere* *over_there*
+
+===============================================================================
+CONTENTS                                                   *over-there-contents*
+
+  1. Introduction.........................|over-there-introduction|
+  2. Commands/Keybinds....................|over-there-commands|
+  3. API..................................|over-there-api|
+  4. Contact..............................|over-there-contact|
+
+===============================================================================
+1. Introduction                                        *over-there-introduction*
+
+This plugin enables seamlessly editing files and interacting with processes on
+remote machines through the use of the `over-there` binary.
+
+This plugin supports the following key features:
+
+1. Opening remote files and reading their contents into buffers.
+2. Updating the contents of remote files.
+3. Detecting changes in remote files and updating local buffers.
+4. Spawning and communicating with remote processes.
+
+If you are interested in contributing to the development of this plugin,
+read the developer documentation. See |over-there-development|
+
+===============================================================================
+2. Commands/Keybinds                                       *over-there-commands*
+
+TODO
+
+===============================================================================
+3. API                                                          *over-there-api*
+
+This plugin offers a number of functions for interacting with a remote host
+using the `over-there` binary. The following functions are part of the publicly
+documented part of that API, and should be expected to continue to work.
+
+TODO
+
+===============================================================================
+4. Contact                                                  *over-there-contact*
+
+If you like this plugin, and wish to get in touch, check out the GitHub
+page for issues and more at https://github.com/chipsenkbeil/vim-over-there
+
+If you wish to contact the author of this plugin directly, please feel
+free to send an email to chip.senkbeil@gmail.com.
+
+===============================================================================
+  vim:tw=78:ts=2:sts=2:sw=2:ft=help:norl:
